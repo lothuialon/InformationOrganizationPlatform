@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+      <meta charset = "utf-8" />
+      <meta name = viewport content="width=device-width, initial scale=1" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+      <script src="{{ url_for('static', filename='script.js') }}"></script>
+      {% block head %}{% endblock %}
+      
+      <title> {% block title %}Base{% endblock %} </title>
+    </head>
+
+    <body>
+      <header>
+        <div class="nav">
+          <div class="nav-header">
+            <a href="/">
+              <div class="nav-title">
+                Information Organization Platform
+              </div>
+            </a>
+          </div>
+          <div class="nav-links">
+            {% if session.logged_in %}
+            <a href="/userhome" target="_self">Panel</a>
+            <a href="/logout" target="_self">Logout</a>
+          {% else %}
+            <a href="/login" target="_self">Login</a>
+            <a href="/signup" target="_self">Register</a>
+          {% endif %}
+          </div>
+        </div>
+      </header>
+
+      <div class="main">
+
+
+          {% block left %}
+
+
+          {% endblock %}
+
+        
+
+
+          {% block content %}
+
+          <h1>test</h1>
+
+          {% endblock %}
+
+
+
+
+          {% block right %}
+
+  
+
+          {% endblock %}
+
+       
+
+      </div>
+
+    <footer>      
+      <div class="footer-content">
+      <div class="left cards" style="background-color: var(--nav-color); flex: 2 2 100px;"></div>
+
+      <div class="middle cards" style="background-color: var(--nav-color); flex:5 5 100px; flex-direction: column; ">
+        <h3 style="align-self: start;">About Us</h3>
+        <p>Our mission is to simplify the process of extracting key information from lengthy texts, saving you valuable time and effort. 
+        Whether you're a student, researcher, or professional, our tools will help you condense large documents into concise summaries, making it easier to grasp the main points and important details.
+        </p>
+
+      </div>
+      <div class="left cards" style="background-color: var(--nav-color)"></div>
+      <div class="left cards" style="background-color: var(--nav-color)">
+
+        
+        <div class="links">
+          <h3>Quick Links</h3>
+          <br>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+
+          </ul>
+        </div>
+      </div>
+
+
+
+
+      <div class="right cards" style="background-color: var(--nav-color); flex: 2 2 150px;"></div>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2023 Information Organization Platform. Created by Can Dönmez.</p>
+    </div>
+      {% block footer %}{% endblock %}
+    </footer>
+
+
+    </body>
+
+</html>
+
+
+

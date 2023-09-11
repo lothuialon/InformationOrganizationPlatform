@@ -1,0 +1,55 @@
+
+
+{% extends "base.html" %}
+
+{% block footer %}<script src="{{ url_for('static', filename='summarize.js') }}"></script>
+                  <script src="{{ url_for('static', filename='extract.js') }}"></script>{% endblock %}
+{%  block title %}{{ extractiion_data[4] }}{% endblock %}
+
+{% block left %}
+<div class="left" style="background-color: var(--bacground-color); flex: 1 1 50px;">
+</div>
+
+    <div class="left" style="flex: 5 5 150px; background-color: var(--background-color);">
+        <div>
+            <h3 style="color: var(--nav-color)">Input</h3>
+            <br>
+            <div>
+            <textarea id="input-text" rows="20" cols="50" spellcheck="false" disabled>{{ extraction_data[1] }}</textarea>
+
+            <br><br>
+            <div>
+
+                <p id="word-count">Word Count: 0</p>
+                
+
+            </div>
+        </div>
+            <br>
+
+            <form action="{{ url_for('views.delete_extractions', extractionId=extraction_data[0]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this keyword extraction?')">
+                <button type="submit" class="button1">Delete Extraction</button>
+            </form>
+ 
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="middle" style="flex: 5 5 150px; background-color: var(--bacground-color);">
+        <h3 style="color: var(--nav-color)">Output</h3>
+        <br>
+        <div>
+            <textarea id="output-text" rows="20" cols="50" disabled> {{ extraction_data[3] }}</textarea>
+
+
+            <br><br>
+            <div>
+
+            </div>
+        </div>
+    </div>
+    <div class="left" style="flex: 1 1 50px; background-color: var(--bacground-color);"></div>
+{% endblock %}

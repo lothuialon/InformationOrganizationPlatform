@@ -1,0 +1,56 @@
+{% extends "base.html" %}{%  block title %}Index{% endblock %}
+
+<div class="middle">
+
+{% block left %}
+<div class="left" style="display: flex; background-color: #d8eefe"></div>
+{% endblock %}
+{% block right %}
+<div class="right" style="display: flex; background-color: #d8eefe"></div>
+{% endblock %}
+
+{% block content %}
+<div class="middle" style="display: flex; background-color: #d8eefe">
+    <div class="left" style="background-color: #d8eefe;flex: 2 2 150px;border-radius: 25px;display: flex;flex-direction: column;">
+      <h1>Welcome to the Information Organization Platform</h1>
+      <br>
+      <p>Get concise summaries of long articles, essays, or documents with just a click. Save time and extract key information quickly. </p>
+      <a href="/login" style="margin-top:30px"><button class="button1" style="align-self: center;">Get Started Now</button></a>
+
+    </div>
+    <div class="middle" style="background-color: #d8eefe">
+
+      <img src="../static/about-banner.png" alt="x">
+
+
+
+      </div>
+    </div>
+  </div>
+    <div class="cards">
+
+
+      <div class="left hov1">
+
+        <i class="fa-brands fa-readme fa-4x"></i>
+        <h3>Summarize Text</h3>
+        <p>Get concise summaries of long articles, essays, or documents with just a click. Save time and extract key information quickly.</p>
+      </div>
+      <div class="middle hov2" >
+        <i class="fa-sharp fa-solid fa-book fa-4x"></i>
+        <h3>Extract Keywords</h3>
+        <p>Effortlessly extract important keywords from text to identify key concepts and topics.</p>
+      </div>
+      <div class="right hov3" >
+        <i class="fa-solid fa-plus fa-4x"></i>
+        <h3>Create Notes</h3>
+        <p>Easily create and organize notes for your summarized texts, keeping your information structured and easily accessible.</p>
+      </div>
+      <div class="right hov4" >
+        <i class="fa-solid fa-floppy-disk fa-4x"></i>
+        <h3>Save and Organize</h3>
+        <p>Save your summarized texts and notes, and organize them using a convenient folder structure for easy navigation and retrieval.</p>
+      </div>
+    </div>
+
+{% endblock %}

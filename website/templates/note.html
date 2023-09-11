@@ -1,0 +1,51 @@
+{% extends "base.html" %}{%  block title %}Note{% endblock %}
+
+
+{% block left %}
+<div class="left">
+
+  </div>
+{% endblock %}
+
+{% block right %}
+<div class="right">
+
+  </div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="middle">
+
+    <div style="display: flex;
+    justify-content: center;">
+    <form method="POST" action="/create_note">
+
+        <h3 style="color: var(--nav-color)">Note</h3>
+        <br>
+
+        <div class="formdiv">
+           
+            <input style="background-color: white" type="text" id="title" name="title" placeholder="Title">
+        </div>
+
+        <div class="formdiv">
+            
+            <textarea id="input-text" name="input-text" rows="24" cols="50" spellcheck="false"></textarea>
+        </div>
+        <div class="formdiv">
+           
+            <input type="hidden" name="folder_id" value="{{ folder_id }}">
+        </div>
+   
+        <br />
+        <button type="submit" class="button1">Save</button>
+
+
+    </form>
+    </div>
+</div>
+
+
+{% endblock %}

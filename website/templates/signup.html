@@ -1,0 +1,66 @@
+{% extends "base.html" %}{%  block title %}Sign Up{% endblock %}
+
+
+{% block left %}
+<div class="left">
+
+  </div>
+{% endblock %}
+
+{% block right %}
+<div class="right">
+
+  </div>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="middle">
+
+        <div style="display: flex;
+        justify-content: center;" >
+        <form method="POST" style="max-width: 220px" action="/signup">
+
+            <h3 style="color: var(--text-color)">Sign Up</h3>
+            <br>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="flash-messages">
+                        {% for category, message in messages %}
+                          <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <div class="formdiv">
+
+                <input type="email" id="email" name="email" placeholder="Enter Email">
+            </div>
+
+            <div class="formdiv">
+               
+                <input type="text" id="username" name="username" placeholder="Enter Username">
+            </div>
+
+            <div class="formdiv">
+                
+                <input type="password" id="password" name="password" placeholder="Password">
+            </div>
+
+            <div class="formdiv">
+       
+                <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password">
+            </div>
+
+            <br />
+            <button type="submit" class="button1">Register</button>
+
+
+        </form>
+        </div>
+    </div>
+
+
+
+{% endblock %}

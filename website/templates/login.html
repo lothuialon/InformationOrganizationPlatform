@@ -1,0 +1,57 @@
+{% extends "base.html" %}{%  block title %}Login{% endblock %}
+
+{% block left %}
+<div class="left" style="display: flex; background-color: var(--background-color)">
+
+  </div>
+{% endblock %}
+
+{% block right %}
+<div class="right" style="display: flex; background-color: var(--background-color)">
+    
+  </div>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="middle" style=" background-color: #d8eefe">
+
+        <div style="display: flex;
+        justify-content: center; background-color: var(--background-color); border-radius:20px" >
+        <form method="POST" style="max-width: 220px"  action="/login">
+
+            <h3 style="color: var(--text-color)">Welcome Back!</h3>
+            <br>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="flash-messages">
+                        {% for category, message in messages %}
+                          <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <div class="formdiv">
+
+                <input type="username" id="username" name="username" placeholder="Username">
+            </div>
+
+            <div class="formdiv">
+                
+                <input type="password" id="password" name="password" placeholder="Password">
+            </div>
+            <br>
+            <a href="/forgotpassword" id = "forgot">Forgot password</a>
+            <br>
+            <br />
+            <button type="submit" class="button1">Login</button>
+
+
+        </form>
+        </div>
+    </div>
+
+
+
+{% endblock %}

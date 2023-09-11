@@ -1,0 +1,60 @@
+
+
+{% extends "base.html" %}
+
+{% block footer %}<script src="{{ url_for('static', filename='summarize.js') }}"></script>
+                  <script src="{{ url_for('static', filename='extract.js') }}"></script>{% endblock %}
+{%  block title %}Extract Keywords{% endblock %}
+
+{% block left %}
+<div class="left" style="background-color: #d8eefe; flex: 1 1 150px; "></div>
+    <div class="left" style="background-color: #d8eefe; flex: 5 5 150px; ">
+            <div>
+            <h3 style="color: var(--nav-color)">Extract Keywords</h3>
+            <br>
+            <textarea id="input-text" rows="20" cols="50" spellcheck="false"></textarea>
+
+            <br><br>
+            <div>
+
+                <p id="word-count">Word Count: 0</p>
+                
+
+            </div>
+            <br>
+            <p style="display: inline;">Number of Keywords: </p>
+            <input style="background-color: white; width: auto; display: inline" type="int" id="keywordNum" name="keywordNum" placeholder="Keyword Number">
+            
+            <br>
+
+            <p style="display: none;" id="titleText">Title: </p>
+            <input style="background-color: white; display: none; width: auto" type="text" id="title" name="title" placeholder="Title">
+            <br>
+            <br>
+            <button class="button1" onclick="extract()">Extract</button>
+            <button class="button1" id="button1" style="display: none; " onclick="saveKeyword()">Save</button>
+
+ 
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="middle" style="background-color: #d8eefe; flex: 5 5 150px; ">
+    <div>
+        <h3 style="color: var(--nav-color)">Output</h3>
+        <br>
+
+            <textarea id="output-text" rows="20" cols="50" disabled spellcheck="false"></textarea>
+
+
+            <br><br>
+            <div>
+
+            </div>
+        </div>
+    </div>
+    <div class="left" style="background-color: #d8eefe; flex: 1 1 150px; "></div>
+{% endblock %}

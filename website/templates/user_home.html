@@ -1,0 +1,107 @@
+{% extends "base.html" %}{%  block title %}Items{% endblock %}
+
+
+{% block right %}
+<div class="right" style="background-color: var(--background-color); ">
+
+  </div>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="middle" style="display: flex; background-color: var(--background-color); flex-direction: column;   border-left: 1px solid var(--nav-color);
+border-right: 1px solid var(--nav-color);">
+
+
+{% if folder_data.get('folderParent') %}
+  <a href="{{ url_for('views.user_home', folder_id=folder_data['folderParent']) }}">
+    <i class="fa-solid fa-folder fa-2xl"></i>
+    <span class="icon-title">Parent Folder</span>
+  </a>
+
+  
+{% endif %}
+
+<div style="display: flex;
+flex-direction: row;
+justify-content: space-between;">
+<h2>{{ folder_data.folderTitle }}</h2>
+
+<div class="dropdown">
+  <a href="#" class="button2">Options</a>
+  <div style="margin: 0;">
+  <ul class="dropdown-content"> 
+    <li><a href="{{ url_for('views.create_note_page', folder_id=folder_data['folderId']) }}">Create Note</a></li>
+    <li><a href="{{ url_for('views.summarizePage', folder_id=folder_data['folderId']) }}">Summarize Text</a></li>
+    <li><a href="{{ url_for('views.extractPage', folder_id=folder_data['folderId']) }}">Extract Keywords</a></li>
+    <li><a href="{{ url_for('views.create_folder_page', folder_id=folder_data['folderId']) }}">Create Folder</a></li>
+    {% if folder_data.get('folderParent') %}
+    <li><a href="{{ url_for('views.delete_folders', folder_id=folder_data['folderId']) }}">Delete This Folder</a></li>
+    {% endif %}
+  </ul>
+</div>
+</div></div>
+
+
+
+
+
+<div class="icon-list">
+
+
+  {% for folder in folder_data['folders'] %}
+
+      <a href="{{ url_for('views.user_home', folder_id=folder['folderId']) }}">
+        <i class="fa-solid fa-folder fa-3x icon"></i>
+        <span class="icon-title">{{ folder['folderTitle'] }}</span>
+      </a>
+
+  {% endfor %}
+
+
+
+
+  {% for note in folder_data.notes %}
+    <a href="{{ url_for('views.view_note', noteId=note.noteId) }}">
+      <i class="fa-solid fa-note-sticky fa-3x icon"></i>
+      <span class="icon-title">{{ note.title }}</span>
+    </a>
+  {% endfor %}
+
+  {% for summarization in folder_data.summarizations %}
+  <a href="{{ url_for('views.view_summarization', summarizationId=summarization.summarizationId) }}">
+    <i class="fa-solid fa-book fa-3x icon"></i>
+    <span class="icon-title">{{ summarization.title}}</span>
+  </a>
+{% endfor %}
+
+
+
+
+  {% for keyword in folder_data.keyword_extractions %}
+    <a href="{{ url_for('views.view_extraction', keywordId=keyword.extractionId) }}">
+      <i class="fa-solid fa-file-word fa-3x icon"></i>
+      <span class="icon-title">{{ keyword.title}}</span>
+    </a>
+    
+    
+  {% endfor %}
+
+</div>
+<!-- 
+<h3>Summarizations:</h3>
+<ul>
+
+</ul>
+-->
+</div>
+{% endblock %}
+
+{% block left %}
+
+<div class="left" style="background-color: var(--background-color); ">
+
+
+</div>
+{% endblock %}
